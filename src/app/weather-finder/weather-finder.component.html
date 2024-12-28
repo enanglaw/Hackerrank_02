@@ -1,0 +1,66 @@
+<div class="weather-data layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-center">
+    <form [formGroup]="searchForm" (ngSubmit)="searchItem()">
+      <div class="form-group">
+        <div class="input-container">
+          <input
+            type="text"
+            class="form-control search-input"
+            placeholder="Dallas"
+            formControlName="searchTerm"
+            data-test-id="app-input"
+          />
+          <button
+            class="btn btn-primary search-button"
+            data-test-id="submit-button"
+          >
+            <i class="fa fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="mt-20 layout-row align-items-center justify-content-center">
+    <div class="card outlined">
+      <div
+        data-test-id="weather-details"
+        class="card-text pt-10 layout-row justify-content-between"
+        *ngIf="weatherInfo"
+      >
+        <div class="mt-20 outlined">
+          <i
+            data-test-id="icon-sunny"
+            class="material-icons"
+            *ngIf="weatherActualMeasurment > 20"
+            >wb_sunny</i
+          >
+          <i
+            data-test-id="icon-cold"
+            class="material-icons"
+            *ngIf="weatherActualMeasurment <= 20"
+            >ac_unit</i
+          >
+          <span data-test-id="result-temperature" class="temperature">{{
+            weatherInfo.weather
+          }}</span>
+        </div>
+        <div class="mr-15 mb-15">
+          <div data-test-id="result-wind" class="mt-20">
+            {{ weatherInfo.windStatus }}
+          </div>
+          <div data-test-id="result-humidity" class="mt-20">
+            {{ weatherInfo.humidity }}
+          </div>
+        </div>
+      </div>
+      <div
+        data-test-id="no-result"
+        class="layout-row justify-content-center align-items-center card-text"
+        *ngIf="!weatherInfo"
+      >
+        No Results Found
+      </div>
+    </div>
+  </section>
+</div>

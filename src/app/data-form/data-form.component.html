@@ -1,0 +1,66 @@
+<section
+  class="form-container layout-column align-items-center justify-content-center"
+>
+  <form [formGroup]="challengeForm" (ngSubmit)="addItem()">
+    <input
+      type="text"
+      class="form-input"
+      data-test-id="app-input-name"
+      formControlName="name"
+      placeholder="Name"
+    />
+    <input
+      type="text"
+      class="form-input"
+      data-test-id="app-input-genre"
+      formControlName="genre"
+      placeholder="Genre"
+    />
+    <input
+      type="text"
+      class="form-input"
+      data-test-id="app-input-creator"
+      formControlName="creator"
+      placeholder="Creator"
+    />
+
+    <div class="radio-group">
+      <label>
+        <input
+          type="radio"
+          formControlName="type"
+          data-test-id="app-input-book-type"
+          value="Book"
+        />
+        Book
+      </label>
+      <label>
+        <input
+          type="radio"
+          formControlName="type"
+          data-test-id="app-input-song-type"
+          value="Song"
+        />
+        Song
+      </label>
+    </div>
+    <input
+      *ngIf="isSong"
+      class="form-input"
+      data-test-id="app-input-time"
+      type="number"
+      formControlName="totalTime"
+      placeholder="Total Time"
+    />
+    <button
+      data-test-id="add-button"
+      [disabled]="challengeForm.invalid"
+      class="btn btn-primary add-button"
+    >
+      Add
+    </button>
+  </form>
+</section>
+<section
+  class="button-container layout-row justify-content-center align-items-center"
+></section>

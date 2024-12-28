@@ -1,0 +1,23 @@
+<div header="User Lists"></div>
+<div class="layout-row align-items-center justify-content-center mb-50">
+  <!-- <app-data-form (onItemAdded)="onItemAdded($event)"> </app-data-form> -->
+  <app-data-form (onItemAdded)="onItemAdded($event)"></app-data-form>
+</div>
+<div class="layout-row justify-content-center">
+  <div class="layout-column item-list justify-content-center">
+    <h3>Book List</h3>
+    <app-data-list
+      [dataList]="books"
+      [dataType]="Book"
+      (onItemDelete)="onItemDelete($event)"
+    ></app-data-list>
+  </div>
+  <div class="layout-column item-list justify-content-center">
+    <h3>Song List</h3>
+    <app-data-list
+      [dataList]="songs"
+      [dataType]="Song"
+      (onItemDelete)="onItemDelete($event)"
+    ></app-data-list>
+  </div>
+</div>
